@@ -7,7 +7,7 @@ const CategoryButton = ({ category }: { category: INavCategoryProps }) => {
         console.log("categoryClicked", categoryName)
     }
     return (
-        <button onClick={() => handleCategoryClick(category.nameBn)} className="flex btn gap-1 cursor-pointer">
+        <button onClick={() => handleCategoryClick(category.nameBn)} className="flex hover:bg-slate-200 gap-1 px-2 py-1 active:bg-green-700 active:text-white rounded-sm cursor-pointer">
             <span>{category.icon}</span>
             <span >{category.nameBn}</span>
         </button>
