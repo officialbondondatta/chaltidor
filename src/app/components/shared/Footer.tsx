@@ -1,7 +1,7 @@
 const Footer = () => {
     return (
-        <div className="bg-white border-t border-separator py-5">
-            <div className="container mx-auto flex items-center justify-between">
+        <div className="bg-white border-t border-separator py-5 px-4 lg:px-0">
+            <div className="max-w-7xl mx-auto flex items-center justify-between">
                 <div>
                     <h2>চলতি দর — প্রয়োজনীয় পণ্যের দাম এক নজরে।</h2>
                 </div>

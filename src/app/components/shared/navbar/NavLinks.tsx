@@ -10,7 +10,7 @@ const NavLinks = async () => {
     const categories: INavCategoryProps[] = await res.json()
     console.log(categories)
     return (
-        <div className="max-w-7xl mx-auto px-3  lg:px-0 mt-2 mb-2">
+        <div className="max-w-7xl mx-auto px-4 lg:px-0 mt-2 mb-2">
             <div className="flex gap-4 items-start justify-start overflow-x-auto">
                 {
                     categories.map(category => (

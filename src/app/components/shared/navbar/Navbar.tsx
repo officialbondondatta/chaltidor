@@ -14,7 +14,7 @@ const Navbar = ({ children }: { children: React.ReactNode }) => {
         </>
     return (
         <nav className="sticky top-0 z-40 w-full border-b border-separator bg-background/70 backdrop-blur-lg">
-            <header className="mx-auto flex h-16 container items-center justify-between px-6">
+            <header className="mx-auto max-w-7xl flex h-16 container items-center justify-between px-6 lg:px-4">
                 <div className="flex items-center gap-4">
                     <button
                         className="md:hidden"
