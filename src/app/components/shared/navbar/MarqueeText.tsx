@@ -16,7 +16,6 @@ export interface ICategoryProps {
 const MarqueeText = async () => {
     const res = await fetch("https://api.abcz.workers.dev/api/bazardor/products")
     const resData: ICategoryProps[] = await res.json()
-    console.log(resData)
     return (
         <div className="border-t border-separator">
             <Marquee speed={160} pauseOnHover={true}>

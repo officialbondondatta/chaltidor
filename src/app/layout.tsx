@@ -27,7 +27,15 @@ export default function RootLayout({ children }: LayoutProps<"/">) {
     >
       <body className="min-h-full flex flex-col">
         <Navbar>
-          <NavLinks></NavLinks>
+          <Suspense
+            fallback={
+              <div className="border-t border-separator" role="status">
+                <h2 className="text-center">তথ্য লোড হচ্ছে...</h2>
+              </div>
+            }
+          >
+            <NavLinks></NavLinks>
+          </Suspense>
           <Suspense
             fallback={
               <div className="border-t border-separator" role="status">
