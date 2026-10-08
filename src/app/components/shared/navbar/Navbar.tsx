@@ -1,9 +1,12 @@
 "use client"
-import React, { useState } from "react";
+import React, { Suspense, useState } from "react";
 import { Link, Button } from "@heroui/react";
+import { TiShoppingCart } from "react-icons/ti";
+import NavDate from "./NavDate";
 
 const Navbar = ({ children }: { children: React.ReactNode }) => {
     const [isMenuOpen, setIsMenuOpen] = useState(false);
+
     const authButtons =
         <>
             <Link href="#">Login</Link>
@@ -44,7 +47,15 @@ const Navbar = ({ children }: { children: React.ReactNode }) => {
                         </svg>
                     </button>
                     <div className="flex items-center gap-3">
-                        <Link href="/" className="font-bold">চলতি দর</Link>
+                        <div>
+                            <TiShoppingCart className="text-4xl text-white bg-green-700 p-1 rounded-md" />
+                        </div>
+                        <div className="flex flex-col">
+                            <Link href="/" className="font-bold text-xl">চলতি দর</Link>
+                            <Suspense>
+                                <NavDate></NavDate>
+                            </Suspense>
+                        </div>
                     </div>
                 </div>
 
@@ -55,11 +66,13 @@ const Navbar = ({ children }: { children: React.ReactNode }) => {
             {isMenuOpen && (
                 <div className="border-t border-separator md:hidden">
                     <ul className="flex flex-col gap-2 p-4">
-
                         {authButtons}
                     </ul>
                 </div>
             )}
+            <div>
+                {children}
+            </div>
         </nav>
     );
 }

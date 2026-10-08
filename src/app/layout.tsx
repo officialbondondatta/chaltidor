@@ -1,9 +1,12 @@
 import type { Metadata } from "next";
+import { Suspense } from "react";
 import { Noto_Sans_Bengali } from "next/font/google";
 import "./globals.css";
 import Footer from "./components/shared/Footer";
 import Navbar from "./components/shared/navbar/Navbar";
 import NavLinks from "./components/shared/navbar/NavLinks";
+import Marquee from "./components/shared/navbar/MarqueeText";
+import MarqueeText from "./components/shared/navbar/MarqueeText";
 
 const notoBengali = Noto_Sans_Bengali({
   subsets: ["latin", "bengali"],
@@ -25,6 +28,15 @@ export default function RootLayout({ children }: LayoutProps<"/">) {
       <body className="min-h-full flex flex-col">
         <Navbar>
           <NavLinks></NavLinks>
+          <Suspense
+            fallback={
+              <div className="border-t border-separator" role="status">
+                <h2 className="text-center">তথ্য লোড হচ্ছে...</h2>
+              </div>
+            }
+          >
+            <MarqueeText></MarqueeText>
+          </Suspense>
         </Navbar>
         {children}
         <Footer></Footer>
