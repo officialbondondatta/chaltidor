@@ -15,7 +15,7 @@ const Banner = async () => {
                     <span className="self-start bg-green-100 px-2 py-1 rounded-xl font-semibold text-green-600">{date}</span>
                     <h2 className="text-2xl lg:text-3xl font-bold">আজকের বাজারের দাম এক নজরে</h2>
                     <p className="text-lg lg:text-xl text-slate-600 font-light">চাল, ডাল, তেল, সবজি, মাছ, মাংস, ডিম ও মসলার দাম — বাজারভিত্তিক বিস্তারিত, গড়, সর্বনিম্ন-সর্বাধিক এবং দামের পরিবর্তন এক জায়গায়।</p>
-                    <Link href={"#allproducts"} className="self-start bg-green-700 font-semibold cursor-pointer hover:bg-green-800 text-white px-3 py-2 rounded-md">সব পণ্য দেখুন</Link>
+                    <Link href={"#সব-পণ্য"} className="self-start bg-green-700 font-semibold cursor-pointer hover:bg-green-800 text-white px-3 py-2 rounded-md">সব পণ্য দেখুন</Link>
                 </div>
                 <div className="flex items-center justify-center">
                     <Image
