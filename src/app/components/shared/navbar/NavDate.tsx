@@ -1,4 +1,5 @@
 const NavDate = () => {
+
     const date = new Date().toLocaleDateString("bn-BD", {
         dateStyle: "full"
     })

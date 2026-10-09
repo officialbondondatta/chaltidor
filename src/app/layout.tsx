@@ -5,7 +5,6 @@ import "./globals.css";
 import Footer from "./components/shared/Footer";
 import Navbar from "./components/shared/navbar/Navbar";
 import NavLinks from "./components/shared/navbar/NavLinks";
-import Marquee from "./components/shared/navbar/MarqueeText";
 import MarqueeText from "./components/shared/navbar/MarqueeText";
 
 const notoBengali = Noto_Sans_Bengali({
@@ -23,7 +22,7 @@ export default function RootLayout({ children }: LayoutProps<"/">) {
   return (
     <html
       lang="en"
-      className={`${notoBengali.className}h-full antialiased`}
+      className={`${notoBengali.className} h-full antialiased`}
     >
       <body className="min-h-full flex flex-col">
         <Navbar>
