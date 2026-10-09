@@ -9,7 +9,7 @@ const NavLinks = async () => {
     const res = await fetch("https://api.abcz.workers.dev/api/bazardor/categories")
     const categories: INavCategoryProps[] = await res.json()
     return (
-        <div className="max-w-7xl mx-auto px-4 lg:px-0 mt-2 mb-2">
+        <div className="max-w-7xl mx-auto px-4 lg:px-0 mt-2 lg:mb-2">
             <div className="flex gap-4 items-start justify-start overflow-x-auto">
                 {
                     categories.map(category => (
