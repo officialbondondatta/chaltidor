@@ -1,5 +1,8 @@
 import { IParamProps } from "@/app/products/[productid]/page";
+import { getAverageUnit } from "@/app/utils/getAverageUnit";
 import { getBanglaUnit } from "@/app/utils/getBanglaUnit";
+import { gethighestPrice } from "@/app/utils/gethighestUnit";
+import { getLowestPrice } from "@/app/utils/getLowestPrice";
 import { toBanglaNumber } from "@/app/utils/toBanglaNumbers";
 import { IoCaretDown, IoCaretUp } from "react-icons/io5";
 
@@ -34,7 +37,6 @@ const DetailedProduct = async ({ params }: IParamProps) => {
     const { productid } = await params
     const res = await fetch(`https://api.abcz.workers.dev/api/bazardor/products/${productid}`)
     const productDetails: IDetailedProductProps = await res.json()
-    console.log(productDetails)
     return (
         <main className="p-5 lg:p-0 lg:mt-10 mt-5">
             <section className="max-w-7xl mx-auto">
@@ -71,6 +73,36 @@ const DetailedProduct = async ({ params }: IParamProps) => {
                                     </>
                             }
 
+                        </div>
+                    </div>
+                </div>
+
+                <div className="lg:mt-10 mt-5 bg-white px-4 py-8 rounded-xl border">
+                    <h2 className="text-xl font-semibold">দামের সারসংক্ষেপ</h2>
+                    <div className="mt-5 grid-cols-3 grid gap-5">
+                        <div className="py-4 px-5 border rounded-xl">
+                            <h2 className="text-slate-400">সর্বনিম্ন দাম</h2>
+                            <p className="text-green-700"><span className="text-2xl mr-2 font-bold text-green-700">
+                                {getLowestPrice(productDetails.markets)}
+                            </span>
+                                টাকা</p>
+                            <p className="text-slate-400">সবচেয়ে কম দামের বাজার</p>
+                        </div>
+                        <div className="py-4 px-5 border rounded-xl">
+                            <h2 className="text-slate-400">সর্বাধিক দাম</h2>
+                            <p className="text-red-700"><span className="text-2xl mr-2 font-bold text-red-700">
+                                {gethighestPrice(productDetails.markets)}
+                            </span>
+                                টাকা</p>
+                            <p className="text-slate-400">সবচেয়ে বেশি দামের বাজার</p>
+                        </div>
+                        <div className="py-4 px-5 border rounded-xl">
+                            <h2 className="text-slate-400">গড় দাম</h2>
+                            <p className="text-green-700"><span className="text-2xl mr-2 font-bold text-green-700">
+                                {getAverageUnit(productDetails.markets)}
+                            </span>
+                                টাকা</p>
+                            <p className="text-slate-400">প্রতি {getBanglaUnit(productDetails.unit)} -এর হিসাবে </p>
                         </div>
                     </div>
                 </div>
