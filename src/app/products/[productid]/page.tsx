@@ -6,9 +6,8 @@ export interface IParamProps {
 }
 const SingleProductDetailsPage = ({ params }: IParamProps) => {
     return (
-        <main>
+        <main className="min-h-screen">
             <section>
-                <h2>Single Page</h2>
                 <Suspense fallback={<p>Loading..</p>}>
                     <DetailedProduct params={params}></DetailedProduct>
                 </Suspense>
