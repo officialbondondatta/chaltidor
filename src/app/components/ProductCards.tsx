@@ -1,5 +1,7 @@
+"use client"
 import { IoCaretDown, IoCaretUp } from "react-icons/io5";
 import { toBanglaNumber } from "../utils/toBanglaNumbers";
+import { useRouter } from "next/navigation";
 
 export interface IProductProps {
     id: number,
@@ -14,6 +16,7 @@ export interface IProductProps {
 }
 
 const ProductCards = ({ product }: { product: IProductProps }) => {
+    const router = useRouter()
     const getBanglaUnit = (unit: string) => {
         switch (unit.toLowerCase()) {
             case "kg":
@@ -30,8 +33,12 @@ const ProductCards = ({ product }: { product: IProductProps }) => {
                 return unit;
         }
     };
+    const handleProductDetails = () => {
+        console.log("productClicked", product)
+        router.push(`/products/${product.id}`)
+    }
     return (
-        <div key={product.id} className="bg-white py-4 px-5 rounded-xl hover:border-green-700 border cursor-pointer hover:shadow-slate-400 hover:shadow-sm">
+        <div onClick={handleProductDetails} key={product.id} className="bg-white py-4 px-5 rounded-xl hover:border-green-700 border cursor-pointer hover:shadow-slate-400 hover:shadow-sm">
             <div className="flex items-center gap-3">
                 <div className="bg-slate-100 text-2xl py-2 rounded-md flex items-center justify-center px-3">
                     {product.image}
