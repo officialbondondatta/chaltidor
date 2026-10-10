@@ -28,11 +28,11 @@ const DetailedProduct = async ({ params }: IParamProps) => {
                             <p className="text-slate-500">প্রতি {getBanglaUnit(productDetails.unit)} - {productDetails.categoryNameBn}</p>
                             <p className="text-slate-500">গতকালের তুলনায় আজ দাম
                                 <span className="font-semibold">{productDetails.change.dir === "up" ? " বেড়েছে " : productDetails.change.dir === "down" && " কমেছে "}</span>
-                                {toBanglaNumber(Math.abs(productDetails.change.pct))} %
+                                {toBanglaNumber((Math.abs(productDetails.change.pct)).toFixed(1))} %
                             </p>
                         </div>
                     </div>
-                    <div className="lg:justify-self-end md:justify-self-end bg-slate-100 py-2 px-3 rounded-md text-center">
+                    <div className="lg:justify-self-end md:justify-self-end bg-slate-100 py-3 px-4 rounded-xl text-center">
                         <h2 className=" text-slate-500">আজকের দাম</h2>
                         <p className="text-center font-semibold text-3xl">{toBanglaNumber(productDetails.today)}</p>
                         <span className="text-center text-sm text-slate-500">টাকা / {getBanglaUnit(productDetails.unit)}</span>
@@ -41,13 +41,13 @@ const DetailedProduct = async ({ params }: IParamProps) => {
                                 productDetails.change.dir === "up" ?
                                     <>
                                         <IoCaretUp className="text-red-700 text-lg"></IoCaretUp>
-                                        <span className="text-sm text-red-700">{toBanglaNumber(Math.abs(productDetails.change.pct))} %</span>
+                                        <span className="text-sm text-red-700">{toBanglaNumber((Math.abs(productDetails.change.pct)).toFixed(1))} %</span>
                                     </>
                                     :
                                     productDetails.change.dir === "down" &&
                                     <>
                                         <IoCaretDown className="text-green-700 text-lg"></IoCaretDown>
-                                        <span className="text-sm text-green-700">{toBanglaNumber(Math.abs(productDetails.change.pct))} %</span>
+                                        <span className="text-sm text-green-700">{toBanglaNumber((Math.abs(productDetails.change.pct)).toFixed(1))} %</span>
                                     </>
                             }
 
