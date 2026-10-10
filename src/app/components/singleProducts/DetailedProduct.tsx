@@ -8,6 +8,7 @@ import { IoCaretDown, IoCaretUp } from "react-icons/io5";
 import ProductDetailsTable from "./ProductDetailsTable";
 import { IDetailedProductProps } from "@/app/types/detailedProductType";
 import Link from "next/link";
+import PageBreadCrumbs, { IBreadcrumbProps } from "./PageBreadCrumbs";
 
 
 
@@ -15,9 +16,15 @@ const DetailedProduct = async ({ params }: IParamProps) => {
     const { productid } = await params
     const res = await fetch(`https://api.abcz.workers.dev/api/bazardor/products/${productid}`)
     const productDetails: IDetailedProductProps = await res.json()
+    const breadCrumbDetails: IBreadcrumbProps = {
+        category: productDetails.category,
+        nameBn: productDetails.nameBn,
+        categoryNameBn: productDetails.categoryNameBn
+    }
     return (
         <main className="p-5 lg:p-0 lg:mt-10 mt-5">
             <section className="max-w-7xl mx-auto">
+                <PageBreadCrumbs details={breadCrumbDetails}></PageBreadCrumbs>
                 <div className="grid lg:grid-cols-2 gap-5 md:grid-cols-2 grid-cols-1 bg-white py-8 px-4 items-center justify-between rounded-xl border">
                     <div className="flex gap-4">
                         <div className="bg-slate-100 px-6 py-5 rounded-md self-start"  >
