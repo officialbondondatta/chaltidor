@@ -14,7 +14,7 @@ export interface ICategoryProps {
     }
 }
 const MarqueeText = async () => {
-    const res = await fetch("https://api.abcz.workers.dev/api/bazardor/products")
+    const res = await fetch(`${process.env.BASE_URL_API}/products`)
     const resData: ICategoryProps[] = await res.json()
     return (
         <div className="border-t border-separator">

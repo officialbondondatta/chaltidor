@@ -1,7 +1,7 @@
 import Products from "./Products";
 
 const AllProducts = async () => {
-    const res = await fetch("https://api.abcz.workers.dev/api/bazardor/products")
+    const res = await fetch(`${process.env.BASE_URL_API}/products`)
     const allProducts = await res.json()
 
     return (

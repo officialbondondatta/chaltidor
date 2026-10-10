@@ -2,7 +2,7 @@ import { IoCaretUp } from "react-icons/io5";
 import ProductCards, { IProductProps } from "./ProductCards";
 
 const PriceIncresed = async () => {
-    const res = await fetch("https://api.abcz.workers.dev/api/bazardor/products")
+    const res = await fetch(`${process.env.BASE_URL_API}/products`)
     const allData: IProductProps[] = await res.json()
     const allIncreasedData = allData.filter(data => data.change.dir === "up")
     const descendingSortedData = allIncreasedData.sort((a, b) => b.change.pct - a.change.pct)

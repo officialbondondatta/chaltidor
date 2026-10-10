@@ -1,5 +1,4 @@
 "use client"
-import React from 'react';
 import { INavCategoryProps } from './NavLinks';
 
 const CategoryButton = ({ category }: { category: INavCategoryProps }) => {

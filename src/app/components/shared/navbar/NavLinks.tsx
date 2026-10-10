@@ -6,7 +6,7 @@ export interface INavCategoryProps {
     slug: string
 }
 const NavLinks = async () => {
-    const res = await fetch("https://api.abcz.workers.dev/api/bazardor/categories")
+    const res = await fetch(`${process.env.BASE_URL_API}/categories`)
     const categories: INavCategoryProps[] = await res.json()
     return (
         <div className="max-w-7xl mx-auto px-4 lg:px-0 mt-2 lg:mb-2">

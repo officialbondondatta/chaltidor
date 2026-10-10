@@ -1,7 +1,6 @@
 import Image from "next/image";
 import { connection } from "next/server";
 import BannerImage from "@/asests/bazar-hero.png"
-import Link from "next/link";
 const Banner = async () => {
     await connection();
 

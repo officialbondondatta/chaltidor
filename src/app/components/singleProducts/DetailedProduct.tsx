@@ -14,7 +14,7 @@ import PageBreadCrumbs, { IBreadcrumbProps } from "./PageBreadCrumbs";
 
 const DetailedProduct = async ({ params }: IParamProps) => {
     const { productid } = await params
-    const res = await fetch(`https://api.abcz.workers.dev/api/bazardor/products/${productid}`)
+    const res = await fetch(`${process.env.BASE_URL_API}/products/${productid}`)
     const productDetails: IDetailedProductProps = await res.json()
     const breadCrumbDetails: IBreadcrumbProps = {
         category: productDetails.category,
