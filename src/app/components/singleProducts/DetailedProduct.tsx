@@ -5,33 +5,11 @@ import { gethighestPrice } from "@/app/utils/gethighestUnit";
 import { getLowestPrice } from "@/app/utils/getLowestPrice";
 import { toBanglaNumber } from "@/app/utils/toBanglaNumbers";
 import { IoCaretDown, IoCaretUp } from "react-icons/io5";
+import ProductDetailsTable from "./ProductDetailsTable";
+import { IDetailedProductProps } from "@/app/types/detailedProductType";
+import Link from "next/link";
 
-export interface IDetailedProductProps {
-    id: number,
-    slug: string,
-    nameBn: string,
-    category: string,
-    categoryNameBn: string,
-    categoryIcon: string,
-    unit: string,
-    image: string,
-    today: number,
-    yesterday: number,
-    lastWeek: number,
-    lastMonth: number,
-    change: {
-        dir: "down" | "up",
-        pct: number
-    },
-    markets: [
-        {
-            market: string,
-            division: string,
-            min: number,
-            max: number
-        }],
 
-}
 
 const DetailedProduct = async ({ params }: IParamProps) => {
     const { productid } = await params
@@ -43,7 +21,7 @@ const DetailedProduct = async ({ params }: IParamProps) => {
                 <div className="grid lg:grid-cols-2 gap-5 md:grid-cols-2 grid-cols-1 bg-white py-8 px-4 items-center justify-between rounded-xl border">
                     <div className="flex gap-4">
                         <div className="bg-slate-100 px-6 py-5 rounded-md self-start"  >
-                            {productDetails.categoryIcon}
+                            {productDetails.image}
                         </div>
                         <div className="space-y-1">
                             <h2 className="text-3xl font-semibold">{productDetails.nameBn}</h2>
@@ -79,7 +57,7 @@ const DetailedProduct = async ({ params }: IParamProps) => {
 
                 <div className="lg:mt-10 mt-5 bg-white px-4 py-8 rounded-xl border">
                     <h2 className="text-xl font-semibold">দামের সারসংক্ষেপ</h2>
-                    <div className="mt-5 grid-cols-3 grid gap-5">
+                    <div className="mt-5 lg:grid-cols-3 md:grid-cols-3 grid-cols-1 grid gap-5">
                         <div className="py-4 px-5 border rounded-xl">
                             <h2 className="text-slate-400">সর্বনিম্ন দাম</h2>
                             <p className="text-green-700"><span className="text-2xl mr-2 font-bold text-green-700">
@@ -105,6 +83,15 @@ const DetailedProduct = async ({ params }: IParamProps) => {
                             <p className="text-slate-400">প্রতি {getBanglaUnit(productDetails.unit)} -এর হিসাবে </p>
                         </div>
                     </div>
+
+                    <h2 className="text-xl mt-5 font-semibold">বাজারভিত্তিক আজকের দাম</h2>
+                    <div>
+                        <ProductDetailsTable details={productDetails} ></ProductDetailsTable>
+                    </div>
+                </div>
+                <div className="mt-8 flex items-center gap-2 font-semibold">
+                    <h2>{productDetails.categoryIcon}</h2>
+                    <Link href={`/category/${productDetails.category}`}> সব {productDetails.categoryNameBn}</Link>
                 </div>
             </section>
         </main>
