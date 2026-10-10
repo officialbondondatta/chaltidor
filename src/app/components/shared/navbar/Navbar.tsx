@@ -1,6 +1,6 @@
 "use client"
 import React, { Suspense, useState } from "react";
-import { Link, Button } from "@heroui/react";
+import { Link } from "@heroui/react";
 import { TiShoppingCart } from "react-icons/ti";
 import NavDate from "./NavDate";
 
@@ -9,8 +9,10 @@ const Navbar = ({ children }: { children: React.ReactNode }) => {
 
     const authButtons =
         <>
-            <Link href="#">Login</Link>
-            <Button>Sign Up</Button>
+            <div className="flex gap-5 items-center justify-center">
+                <Link href="/sign-in" className="hover:bg-slate-200 py-2 px-5">সাইন ইন</Link>
+                <Link href="/sign-up" className="bg-green-600 hover:bg-green-700 text-white px-5 py-2">সাইন আপ</Link>
+            </div>
         </>
     return (
         <nav className="sticky top-0 z-40 w-full border-b border-separator bg-background/70 backdrop-blur-lg">
