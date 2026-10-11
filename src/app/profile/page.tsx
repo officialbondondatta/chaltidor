@@ -6,7 +6,6 @@ import { toast } from "@heroui/react";
 import { useRouter } from "next/navigation";
 import {
     Button,
-    Description,
     FieldError,
     FieldGroup,
     Fieldset,
@@ -16,10 +15,11 @@ import {
     TextField,
 } from "@heroui/react";
 import React from "react";
+import ProfileSkeleton from "./ProfileSkeleton";
 const ProfilePage = () => {
     const { data: session, isPending } = useSession()
     const router = useRouter()
-    if (isPending) return <p>লোড হচ্ছে...</p>;
+    if (isPending) return <ProfileSkeleton />;
     if (!session) return <p>অনুগ্রহ করে সাইন ইন করুন।</p>;
     const handleSignOut = async () => {
         await signOut({
