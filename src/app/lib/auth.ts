@@ -4,6 +4,10 @@ import { mongodbAdapter } from "@better-auth/mongo-adapter";
 
 
 const mongoURI = process.env.MONGODB_DB_URL
+
+if (!mongoURI) {
+    throw new Error("MongoDB database not found")
+}
 const client = new MongoClient(`${mongoURI}`);
 const db = client.db("chaltiDor");
 
