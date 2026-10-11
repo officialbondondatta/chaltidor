@@ -26,8 +26,10 @@ const SignInPage = () => {
             toast.warning("Something went wrong")
         }
     };
-    const handleGoogleSignIn = () => {
-        console.log("google sign in")
+    const handleGoogleSignIn = async () => {
+        await signIn.social({
+            provider: "google"
+        })
     }
 
     return (
