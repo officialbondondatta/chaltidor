@@ -7,6 +7,7 @@ import Navbar from "./components/shared/navbar/Navbar";
 import NavLinks from "./components/shared/navbar/NavLinks";
 import NavLinksSkeleton from "./components/shared/navbar/NavLinksSkeleton";
 import MarqueeText from "./components/shared/navbar/MarqueeText";
+import MarqueeTextSkeleton from "./components/shared/navbar/MarqueeTextSkeleton";
 import { Toast } from '@heroui/react';
 const notoBengali = Noto_Sans_Bengali({
   subsets: ["latin", "bengali"],
@@ -31,13 +32,7 @@ export default function RootLayout({ children }: LayoutProps<"/">) {
           <Suspense fallback={<NavLinksSkeleton />}>
             <NavLinks></NavLinks>
           </Suspense>
-          <Suspense
-            fallback={
-              <div className="border-t border-separator" role="status">
-                <h2 className="text-center">তথ্য লোড হচ্ছে...</h2>
-              </div>
-            }
-          >
+          <Suspense fallback={<MarqueeTextSkeleton />}>
             <MarqueeText></MarqueeText>
           </Suspense>
         </Navbar>
