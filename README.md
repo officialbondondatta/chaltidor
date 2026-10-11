@@ -19,12 +19,12 @@ ChaltiDor is a Bengali-language web application for exploring the prices of ever
 
 ## 5 Key Features
 
-1. **Browse products by category** — Explore everyday essentials by category and sort products by price, from lowest to highest or highest to lowest.
+1. **Browse products by category** : Explore everyday essentials by category and sort products by price, from lowest to highest or highest to lowest.
 
-2. **Track daily price changes** — View today's prices, percentage changes, and dedicated sections highlighting products whose prices have increased or decreased.
+2. **Track daily price changes** : View today's prices, percentage changes, and dedicated sections highlighting products whose prices have increased or decreased.
 
-3. **Compare prices across markets** — Open a product's details to see market and division information, minimum and maximum prices, and average-price summaries.
+3. **Compare prices across markets** : Open a product's details to see market and division information, minimum and maximum prices, and average-price summaries.
 
-4. **Manage your account** — Sign up or sign in with email and password, Google, or GitHub. View your profile, update your name, and sign out.
+4. **Manage your account** : Sign up or sign in with email and password, Google, or GitHub. View your profile, update your name, and sign out.
 
-5. **Enjoy a responsive Bengali interface** — Browse on mobile and desktop with Bengali labels, localized numbers and dates, a scrolling price ticker, and skeleton loading states.
+5. **Enjoy a responsive Bengali interface** : Browse on mobile and desktop with Bengali labels, localized numbers and dates, a scrolling price ticker, and skeleton loading states.
