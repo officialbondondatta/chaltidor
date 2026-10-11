@@ -61,7 +61,7 @@ const Products = ({ receivedData }: IProductsSortedProps) => {
                         </Select>
                     </div>
                 </div>
-                <div className="grid md;grid-cols-2 lg:grid-cols-3 grid-cols-1 gap-4 mt-5">
+                <div className="grid md:grid-cols-2 lg:grid-cols-3 grid-cols-1 gap-4 mt-5">
                     {/* Data here */}
                     {
                         selectedState?.id === "price-desc" ? priceDescSortedData.map((data) => (<ProductCards key={data.id} product={data}></ProductCards>)) : selectedState?.id === "price-asc" ? priceAscSortedData.map((data) => (<ProductCards key={data.id} product={data}></ProductCards>)) : selectedState?.id === "default" && receivedData.map((data) => (<ProductCards key={data.id} product={data}></ProductCards>))
