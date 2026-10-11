@@ -9,6 +9,10 @@ const SignUpPage = () => {
         e.preventDefault();
         const formData = new FormData(e.currentTarget);
         const signUpData = Object.fromEntries(formData.entries()) as Record<string, string>
+        if (signUpData.password !== signUpData.againPassword) {
+            toast.warning("আপনার দেওয়া পাসওয়ার্ড দুটি এক নয়। অনুগ্রহ করে আবার যাচাই করুন।")
+            return
+        }
         console.log(signUpData)
         toast.success("Succefully Signed up")
     };
@@ -85,7 +89,7 @@ const SignUpPage = () => {
                         <TextField
                             isRequired
                             minLength={8}
-                            name="password"
+                            name="againPassword"
                             type="password"
                             validate={(value) => {
                                 if (value.length < 8) {
