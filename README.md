@@ -1,4 +1,4 @@
-# 🛒 চলতি দর / BazarDor
+# 🛒 চলতি দর / ChaltiDor
 
 **আজকের বাজারের দাম এক নজরে — everyday market prices at a glance.**
 
