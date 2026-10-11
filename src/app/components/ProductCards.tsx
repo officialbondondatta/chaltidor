@@ -20,7 +20,7 @@ const ProductCards = ({ product }: { product: IProductProps }) => {
     const router = useRouter()
 
     const handleProductDetails = () => {
-        router.push(`/products/${product.id}`)
+        router.push(`/product/${product.id}`)
     }
     return (
         <div onClick={handleProductDetails} key={product.id} className="bg-white py-4 px-5 rounded-xl hover:border-green-700 border cursor-pointer hover:shadow-slate-400 hover:shadow-sm">

@@ -1,4 +1,4 @@
-import { IParamProps } from "@/app/products/[productid]/page";
+import { IParamProps } from "@/app/product/[productid]/page";
 import { getAverageUnit } from "@/app/utils/getAverageUnit";
 import { getBanglaUnit } from "@/app/utils/getBanglaUnit";
 import { gethighestPrice } from "@/app/utils/gethighestUnit";
