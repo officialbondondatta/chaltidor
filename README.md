@@ -1,36 +1,30 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# 🛒 চলতি দর / BazarDor
 
-## Getting Started
+**আজকের বাজারের দাম এক নজরে — everyday market prices at a glance.**
 
-First, run the development server:
+ChaltiDor is a Bengali-language web application for exploring the prices of everyday essentials, including rice, lentils, oil, vegetables, fish, meat, eggs, and spices. It helps shoppers compare prices across markets, see daily price changes, and make informed shopping decisions.
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
-```
+## Technologies Used
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+| Technology | Purpose |
+| --- | --- |
+| Next.js 16 & React 19 | App Router, server components, and interactive interfaces |
+| TypeScript | Type-safe application development |
+| Tailwind CSS 4 | Responsive layouts and styling |
+| HeroUI | UI components, forms, tables, and toast notifications |
+| Better Auth | Email/password authentication and Google/GitHub sign-in |
+| MongoDB | Authentication data storage through the MongoDB adapter |
+| React Icons | Icons throughout the interface |
+| React Fast Marquee | Scrolling market-price ticker |
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+## 5 Key Features
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+1. **Browse products by category** — Explore everyday essentials by category and sort products by price, from lowest to highest or highest to lowest.
 
-## Learn More
+2. **Track daily price changes** — View today's prices, percentage changes, and dedicated sections highlighting products whose prices have increased or decreased.
 
-To learn more about Next.js, take a look at the following resources:
+3. **Compare prices across markets** — Open a product's details to see market and division information, minimum and maximum prices, and average-price summaries.
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+4. **Manage your account** — Sign up or sign in with email and password, Google, or GitHub. View your profile, update your name, and sign out.
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
-
-## Deploy on Vercel
-
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+5. **Enjoy a responsive Bengali interface** — Browse on mobile and desktop with Bengali labels, localized numbers and dates, a scrolling price ticker, and skeleton loading states.
