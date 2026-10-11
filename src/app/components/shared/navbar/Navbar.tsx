@@ -23,7 +23,6 @@ const Navbar = ({ children }: { children: React.ReactNode }) => {
             }
         })
     }
-    console.log(session?.user)
     const authButtons =
         <>
             {
