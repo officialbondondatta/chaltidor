@@ -12,7 +12,6 @@ const SignInPage = () => {
         e.preventDefault();
         const formData = new FormData(e.currentTarget);
         const signInData = Object.fromEntries(formData.entries()) as Record<string, string>
-        console.log(signInData)
         const { data, error } = await signIn.email({
             email: signInData.email,
             password: signInData.password,

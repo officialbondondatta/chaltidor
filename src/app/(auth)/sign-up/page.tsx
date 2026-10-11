@@ -16,7 +16,6 @@ const SignUpPage = () => {
             toast.warning("আপনার দেওয়া পাসওয়ার্ড দুটি এক নয়। অনুগ্রহ করে আবার যাচাই করুন।")
             return
         }
-        console.log(signUpData)
         const { data, error } = await signUp.email({
             name: signUpData.name,
             email: signUpData.email,
