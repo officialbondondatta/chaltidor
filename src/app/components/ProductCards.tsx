@@ -3,6 +3,7 @@ import { IoCaretDown, IoCaretUp } from "react-icons/io5";
 import { toBanglaNumber } from "../utils/toBanglaNumbers";
 import { useRouter } from "next/navigation";
 import { getBanglaUnit } from "../utils/getBanglaUnit";
+import { TfiLayoutLineSolid } from "react-icons/tfi";
 
 export interface IProductProps {
     id: number,
@@ -43,7 +44,7 @@ const ProductCards = ({ product }: { product: IProductProps }) => {
                     </p>
                 </div>
                 <div className="flex items-center justify-end bg-slate-100 px-2 py-1 rounded-lg">
-                    {product.change.dir === "up" ? <IoCaretUp className="text-red-700"></IoCaretUp> : <IoCaretDown className="text-green-700 "></IoCaretDown>}
+                    {product.change.dir === "up" ? <IoCaretUp className="text-red-700"></IoCaretUp> : product.change.dir === "down" ? <IoCaretDown className="text-green-700 "></IoCaretDown> : product.change.dir === "flat" && <TfiLayoutLineSolid className="mr-1" />}
                     <span className="text-sm">{toBanglaNumber(Math.abs(product.change.pct))} %</span>
                 </div>
             </div>
