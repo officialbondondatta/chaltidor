@@ -19,8 +19,8 @@ const SignInPage = () => {
         })
 
         if (data) {
-            toast.success("Succefully Signed in")
             router.push("/")
+            toast.success("Succefully Signed in")
         }
         if (error) {
             toast.warning("Something went wrong")
