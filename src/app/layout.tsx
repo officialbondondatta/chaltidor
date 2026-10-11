@@ -6,7 +6,7 @@ import Footer from "./components/shared/Footer";
 import Navbar from "./components/shared/navbar/Navbar";
 import NavLinks from "./components/shared/navbar/NavLinks";
 import MarqueeText from "./components/shared/navbar/MarqueeText";
-import { Toast, toast } from '@heroui/react';
+import { Toast } from '@heroui/react';
 const notoBengali = Noto_Sans_Bengali({
   subsets: ["latin", "bengali"],
 });
