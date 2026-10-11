@@ -31,6 +31,11 @@ const SignInPage = () => {
             provider: "google"
         })
     }
+    const handleGithubSignIn = async () => {
+        await signIn.social({
+            provider: "github"
+        })
+    }
 
     return (
         <main className="lg:mt-10 mt-5 lg:p-0 p-5">
@@ -95,7 +100,7 @@ const SignInPage = () => {
                             <button onClick={handleGoogleSignIn} className="flex items-center justify-center gap-2 w-full border border-slate-400 rounded-xl py-2 font-semibold">
                                 <FcGoogle className="text-xl" />  Google  দিয়ে চালিয়ে যান
                             </button>
-                            <button onClick={handleGoogleSignIn} className=" w-full items-center justify-center flex gap-2 border border-slate-400 rounded-xl py-2 font-semibold">
+                            <button onClick={handleGithubSignIn} className=" w-full items-center justify-center flex gap-2 border border-slate-400 rounded-xl py-2 font-semibold">
                                 <SiGithub className="text-xl" /> GitHub  দিয়ে চালিয়ে যান
                             </button>
                         </div>
