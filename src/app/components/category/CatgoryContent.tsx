@@ -2,7 +2,6 @@ import { ICategorySinglePageProps } from "@/app/category/[categoryName]/page";
 import { IDetailedProductProps } from "@/app/types/detailedProductType";
 import { toBanglaNumber } from "@/app/utils/toBanglaNumbers";
 import Products from "../allproducts/Products";
-import { notFound } from "next/navigation";
 import NoItems from "./NoItems";
 
 export interface ICategoryProps {

@@ -1,5 +1,5 @@
 import Link from "next/link";
-import { IoArrowBack, IoSearchOutline } from "react-icons/io5";
+import { IoArrowBack } from "react-icons/io5";
 
 const NotFoundPage = () => {
     return (
