@@ -2,6 +2,7 @@ import { ICategorySinglePageProps } from "@/app/category/[categoryName]/page";
 import { IDetailedProductProps } from "@/app/types/detailedProductType";
 import { toBanglaNumber } from "@/app/utils/toBanglaNumbers";
 import Products from "../allproducts/Products";
+import { notFound } from "next/navigation";
 import NoItems from "./NoItems";
 
 export interface ICategoryProps {
@@ -13,7 +14,16 @@ export interface ICategoryProps {
 const CatgoryContent = async ({ params }: ICategorySinglePageProps) => {
     const { categoryName } = await params
     const resOriginCategory = await fetch(`${process.env.BASE_URL_API}/categories/${categoryName}`)
+    if (resOriginCategory.status === 404) {
+        notFound()
+    }
+    if (!resOriginCategory.ok) {
+        throw new Error("Failed to load category");
+    }
     const originCategory: ICategoryProps = await resOriginCategory.json()
+    if (!originCategory) {
+        notFound();
+    }
     const res = await fetch(`${process.env.BASE_URL_API}/products?category=${categoryName}`)
     const category: IDetailedProductProps[] = await res.json()
 
@@ -29,11 +39,9 @@ const CatgoryContent = async ({ params }: ICategorySinglePageProps) => {
                 </div>
             </div>
             <div className="mt-5">
-                {
-                    category.length === 0 ? <NoItems></NoItems> :
-
-                        <Products receivedData={category}></Products>
-                }
+                {category.length === 0
+                    ? <NoItems />
+                    : <Products receivedData={category} />}
             </div>
         </div>
     );
