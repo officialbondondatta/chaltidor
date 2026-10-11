@@ -1,10 +1,21 @@
 "use client"
 
 import { PiSignOut } from "react-icons/pi";
-import { signOut, useSession } from "../lib/auth-client";
+import { signOut, updateUser, useSession } from "../lib/auth-client";
 import { toast } from "@heroui/react";
 import { useRouter } from "next/navigation";
-
+import {
+    Button,
+    Description,
+    FieldError,
+    FieldGroup,
+    Fieldset,
+    Form,
+    Input,
+    Label,
+    TextField,
+} from "@heroui/react";
+import React from "react";
 const ProfilePage = () => {
     const { data: session, isPending } = useSession()
     const router = useRouter()
@@ -19,6 +30,18 @@ const ProfilePage = () => {
                 }
             }
         })
+    }
+    const handleUpdate = async (e: React.FormEvent<HTMLFormElement>) => {
+        e.preventDefault()
+        const formData = new FormData(e.currentTarget)
+        const updatedInfo = Object.fromEntries(formData.entries())
+        const res = await updateUser({
+            name: updatedInfo.name as string
+        })
+        if (res?.data?.status) {
+            toast.success("নাম সফলভাবে হালনাগাদ করা হয়েছে")
+        }
+
     }
     return (
         <main className="min-h-screen lg:p-0 p-5 lg:mt-10 mt-5">
@@ -44,6 +67,38 @@ const ProfilePage = () => {
                             <PiSignOut className="text-xl" />
                             সাইন আউট
                         </button>
+                    </div>
+                </div>
+
+                <div className="mt-5 bg-white rounded-xl py-5 px-8">
+                    <h2 className="text-lg font-semibold">নাম হালনাগাদ করুন</h2>
+                    <div>
+                        <Form className="max-w-100 mt-5" onSubmit={handleUpdate}>
+                            <Fieldset>
+                                <FieldGroup>
+                                    <TextField
+                                        isRequired
+                                        name="name"
+                                        defaultValue={session?.user.name ?? ""}
+                                        validate={(value) => {
+                                            if (value.length < 3) {
+                                                return "Name must be at least 3 characters";
+                                            }
+                                            return null;
+                                        }}
+                                    >
+                                        <Label className="text-lg">নাম</Label>
+                                        <Input className="border rounded-xl border-slate-400 focus:border-none focus:outline-none focus:ring-2 focus:ring-green-500" />
+                                        <FieldError />
+                                    </TextField>
+                                </FieldGroup>
+                                <Fieldset.Actions>
+                                    <Button type="submit" className="bg-green-700 rounded-xl font-semibold hover:bg-green-800">
+                                        নাম হালনাগাদ করুন
+                                    </Button>
+                                </Fieldset.Actions>
+                            </Fieldset>
+                        </Form>
                     </div>
                 </div>
             </section>
