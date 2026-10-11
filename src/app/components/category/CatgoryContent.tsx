@@ -2,6 +2,8 @@ import { ICategorySinglePageProps } from "@/app/category/[categoryName]/page";
 import { IDetailedProductProps } from "@/app/types/detailedProductType";
 import { toBanglaNumber } from "@/app/utils/toBanglaNumbers";
 import Products from "../allproducts/Products";
+import { notFound } from "next/navigation";
+import NoItems from "./NoItems";
 
 export interface ICategoryProps {
     id: string,
@@ -15,6 +17,7 @@ const CatgoryContent = async ({ params }: ICategorySinglePageProps) => {
     const originCategory: ICategoryProps = await resOriginCategory.json()
     const res = await fetch(`${process.env.BASE_URL_API}/products?category=${categoryName}`)
     const category: IDetailedProductProps[] = await res.json()
+
     return (
         <div className="">
             <div className="flex items-center gap-3 bg-white py-4 px-8 rounded-xl">
@@ -27,7 +30,11 @@ const CatgoryContent = async ({ params }: ICategorySinglePageProps) => {
                 </div>
             </div>
             <div className="mt-5">
-                <Products receivedData={category}></Products>
+                {
+                    category.length === 0 ? <NoItems></NoItems> :
+
+                        <Products receivedData={category}></Products>
+                }
             </div>
         </div>
     );
