@@ -5,6 +5,7 @@ import "./globals.css";
 import Footer from "./components/shared/Footer";
 import Navbar from "./components/shared/navbar/Navbar";
 import NavLinks from "./components/shared/navbar/NavLinks";
+import NavLinksSkeleton from "./components/shared/navbar/NavLinksSkeleton";
 import MarqueeText from "./components/shared/navbar/MarqueeText";
 import { Toast } from '@heroui/react';
 const notoBengali = Noto_Sans_Bengali({
@@ -27,13 +28,7 @@ export default function RootLayout({ children }: LayoutProps<"/">) {
       <body className="min-h-full flex flex-col">
         <Toast.Provider placement="top" className="mt-15"></Toast.Provider>
         <Navbar>
-          <Suspense
-            fallback={
-              <div className="border-t border-separator" role="status">
-                <h2 className="text-center">তথ্য লোড হচ্ছে...</h2>
-              </div>
-            }
-          >
+          <Suspense fallback={<NavLinksSkeleton />}>
             <NavLinks></NavLinks>
           </Suspense>
           <Suspense
