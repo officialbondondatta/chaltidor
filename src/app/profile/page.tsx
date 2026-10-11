@@ -71,10 +71,10 @@ const ProfilePage = () => {
                 </div>
 
                 <div className="mt-5 bg-white rounded-xl py-5 px-8">
-                    <h2 className="text-lg font-semibold">নাম হালনাগাদ করুন</h2>
+                    <h2 id="update-name-heading" className="text-lg font-semibold">নাম হালনাগাদ করুন</h2>
                     <div>
                         <Form className="max-w-100 mt-5" onSubmit={handleUpdate}>
-                            <Fieldset>
+                            <Fieldset aria-labelledby="update-name-heading">
                                 <FieldGroup>
                                     <TextField
                                         isRequired

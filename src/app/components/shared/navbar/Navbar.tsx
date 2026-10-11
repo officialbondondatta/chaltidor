@@ -41,7 +41,7 @@ const Navbar = ({ children }: { children: React.ReactNode }) => {
                             </span>
                         </Button>
                         <Dropdown.Popover>
-                            <Dropdown.Menu>
+                            <Dropdown.Menu aria-label="অ্যাকাউন্ট মেনু">
                                 <Dropdown.Item>
                                     <div className="flex flex-col text-slate-400 text-sm">
                                         <h2 className="font-semibold">
