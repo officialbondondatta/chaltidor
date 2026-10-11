@@ -1,11 +1,14 @@
 "use client"
+import { signUp } from "@/app/lib/auth-client";
 import { Button, Description, FieldError, Form, Input, Label, TextField, toast } from "@heroui/react";
 import Link from "next/link";
+import { useRouter } from "next/navigation";
 import { FcGoogle } from "react-icons/fc";
 import { SiGithub } from "react-icons/si";
 
 const SignUpPage = () => {
-    const onSubmit = (e: React.FormEvent<HTMLFormElement>) => {
+    const router = useRouter()
+    const onSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
         e.preventDefault();
         const formData = new FormData(e.currentTarget);
         const signUpData = Object.fromEntries(formData.entries()) as Record<string, string>
@@ -14,7 +17,19 @@ const SignUpPage = () => {
             return
         }
         console.log(signUpData)
-        toast.success("Succefully Signed up")
+        const { data, error } = await signUp.email({
+            name: signUpData.name,
+            email: signUpData.email,
+            password: signUpData.password,
+            callbackURL: "/"
+        })
+        if (data) {
+            toast.success("Succefully Signed up")
+            router.push("/")
+        }
+        if (error) {
+            toast.warning("something went wrong")
+        }
     };
     const handleGoogleSignUp = () => {
         console.log("google sign up")
