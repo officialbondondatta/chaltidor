@@ -3,12 +3,13 @@ import { MongoClient } from "mongodb";
 import { mongodbAdapter } from "@better-auth/mongo-adapter";
 
 
-const mongoURI = process.env.MONGODB_DB_URL
+// const mongoURI = process.env.MONGODB_DB_URL
 
-if (!mongoURI) {
-    throw new Error("MongoDB database not found")
-}
-const client = new MongoClient(`${mongoURI}`);
+// if (!mongoURI) {
+//     throw new Error("MongoDB database not found")
+// }
+// const client = new MongoClient(`${mongoURI}`);
+const client = new MongoClient(process.env.MONGODB_DB_URL as string);
 const db = client.db("chaltiDor");
 
 export const auth = betterAuth({
